@@ -1,0 +1,32 @@
+#
+# Maintained by: G0urav <https://github.com/heapbytes>
+# Developed by Team Vitunix
+#
+
+pkgname=vitunix-calamares
+pkgver=1.0
+pkgrel=1
+pkgdesc="Calamares configuration for Vitunix OS."
+url="https://github.com/vitunix/vitunix-calamares"
+arch=('any')
+license=('GPL')
+provides=($pkgname)
+conflicts=($pkgname)
+# depends=('calamares')
+
+prepare() {
+	cp -af ../files/. ${srcdir}
+}
+
+package() {
+
+	# copy all files recursively in /etc/calamares
+	(find calamares -type f -exec install -Dm 644 "{}" "$pkgdir/etc/{}" \;)
+	# make scripts executable
+	chmod 755 "$pkgdir"/etc/calamares/launch.sh
+	chmod 755 "$pkgdir"/etc/calamares/branding/vitunix/test-slides.sh
+
+}
+
+
+
