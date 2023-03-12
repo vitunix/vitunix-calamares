@@ -48,7 +48,7 @@ Presentation
         }
     }
 
-/*    Slide {
+    Slide {
         anchors.fill: parent
 
         Image {
@@ -67,7 +67,8 @@ Presentation
             anchors.fill: parent
         }
     }
-    
+   
+/*
     Slide {
         anchors.fill: parent
 
